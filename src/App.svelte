@@ -4,9 +4,11 @@
   import Background from "./lib/additional-components/background/Background.svelte";
   import Controls from "./lib/additional-components/controls/Controls.svelte";
   import MiniMap from "./lib/additional-components/minimap/MiniMap.svelte";
-  import { onMount } from "svelte";
+  import { Node, Position } from "./lib/types";
+  import PropNode from "./PropNode.svelte";
+  import ImageNode from "./ImageNode.svelte";
 
-  let nodes = [
+  let nodes:Node[] = [
     {
       id: "1",
       type: "input",
@@ -67,6 +69,21 @@
       class: "light",
       parentNode: "4b",
     },
+    {
+      id: "5",
+      data: { imgSrc: "https://picsum.photos/200/300" , label: "Node 5" },
+      type: "image",
+      position: { x: 700, y: 300 },
+      class: "light",
+      targetPosition: Position.Left,
+    },
+    {
+      id: "6",
+      data: { label: "Node 6" },
+      position: { x: 50, y: 500 },
+      class: "light",
+      type: "prop",
+    }
   ];
 
   let edges = [
@@ -79,15 +96,24 @@
     { id: "e4a-4b2", source: "4a", target: "4b2" },
     { id: "e4b1-4b2", source: "4b1", target: "4b2" },
   ];
+
+  let customTypes = {
+    "image": ImageNode,
+    "prop": PropNode,
+  };
   
-    $: console.log("nodes", nodes);
 </script>
 
 <main>
   <h1>Svelte Flow!</h1>
 
-  <SvelteFlow bind:nodes bind:edges fitView={true}>
-    <Background gap={10} size={0.8} />
+  <SvelteFlow 
+    bind:nodes 
+    bind:edges 
+    fitView={true} 
+    nodeTypes={customTypes}
+    >
+    <Background gap={20} size={0.8} />
     <Controls />
     <MiniMap />
   </SvelteFlow>
@@ -138,5 +164,11 @@
         stroke: #f6ab6c;
       }
     }
+
+    .svelte-flow__edge-path{
+      // set line width
+
+    }
+    
   }
 </style>
