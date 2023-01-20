@@ -72,6 +72,7 @@
       y={$store.nodeInternals.get(node.id)?.positionAbsolute?.y || 0}
       width={node.width}
       height={node.height}
+      fill={node.color || "#ccc"}
       shape-rendering={shapeRendering}
     />
   {/each}
@@ -82,6 +83,8 @@
       offset *
         2}z M{viewBoundingBox.x},{viewBoundingBox.y}h{viewBoundingBox.width}v{viewBoundingBox.height}h{-viewBoundingBox.width}z"
     fill-rule="evenodd"
+    fill="#ccc"
+    fill-opacity="0.5"
   />
 </svg>
 
