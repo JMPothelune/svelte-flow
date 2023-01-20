@@ -254,6 +254,7 @@
 
   .svelte-flow__edge {
     pointer-events: visibleStroke;
+    cursor: pointer;
 
     &.inactive {
       pointer-events: none;
@@ -330,24 +331,24 @@
   .svelte-flow__handle-bottom {
     top: auto;
     left: 50%;
-    bottom: -4px;
+    bottom: -10px;
     transform: translate(-50%, 0);
   }
 
   .svelte-flow__handle-top {
     left: 50%;
-    top: -4px;
+    top: -10px;
     transform: translate(-50%, 0);
   }
 
   .svelte-flow__handle-left {
     top: 50%;
-    left: -4px;
+    left: -10px;
     transform: translate(0, -50%);
   }
 
   .svelte-flow__handle-right {
-    right: -4px;
+    right: -10px;
     top: 50%;
     transform: translate(0, -50%);
   }
@@ -450,11 +451,11 @@
 
   .svelte-flow__handle {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 14px;
+    height: 14px;
     background: #555;
     border: 1px solid white;
-    border-radius: 100%;
+    border-radius: 4px;
 
     &.connectable {
       cursor: crosshair;
