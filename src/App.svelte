@@ -1,9 +1,10 @@
 <script lang="ts">
-  import SvelteFlow from "./lib/container/svelteflow/svelteflow.svelte";
+  import SvelteFlow from "./lib/container/svelteflow/SvelteFlow.svelte";
 
-  import Background from "./lib/additional-components/background/background.svelte";
-  import Controls from "./lib/additional-components/controls/controls.svelte";
-  import MiniMap from "./lib/additional-components/minimap/minimap.svelte";
+  import Background from "./lib/additional-components/background/Background.svelte";
+  import Controls from "./lib/additional-components/controls/Controls.svelte";
+  import MiniMap from "./lib/additional-components/minimap/MiniMap.svelte";
+  import { onMount } from "svelte";
 
   let nodes = [
     {
@@ -78,6 +79,8 @@
     { id: "e4a-4b2", source: "4a", target: "4b2" },
     { id: "e4b1-4b2", source: "4b1", target: "4b2" },
   ];
+  
+    $: console.log("nodes", nodes);
 </script>
 
 <main>

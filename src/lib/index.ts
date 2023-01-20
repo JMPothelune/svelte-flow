@@ -1,1 +1,1 @@
-export {default as SvelteFlow } from './container/svelteflow/svelteflow.svelte';
+export {default as SvelteFlow } from './container/svelteflow/SvelteFlow.svelte';
